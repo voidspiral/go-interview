@@ -23,20 +23,13 @@ func merge(arr []int, l, mid int, r int) {
 			j++
 		}
 	}
-	for i <= mid {
+	for ; i <= mid; i++ {
 		tmp[k] = arr[i]
 		k++
-		i++
 	}
-	for j <= r {
+	for ; j <= r; j++ {
 		tmp[k] = arr[j]
 		k++
-		j++
 	}
-	//copy(arr[l:r], tmp)
-	x := 0
-	for i := l; i <= r; i++ {
-		arr[i] = tmp[x]
-		x++
-	}
+	copy(arr[l:r+1], tmp)
 }
