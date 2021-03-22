@@ -2,18 +2,27 @@ package main
 
 import (
 	"fmt"
-	"unsafe"
+	"time"
 )
 
-//type slice struct {
-//	ptr uintptr
-//	len int
-//	cap int
+//func test() bool {
+//	select {
+//	case <- time.After(100 * time.Millisecond):
+//	case <-s.stopc:
+//		return false
+//	}
 //}
 
+func worker() {
+	ticker := time.Tick(1 * time.Second)
+	for {
+		select {
+		case <-ticker:
+			//执行定时任务
+			fmt.Println("执行1s定时任务")
+		}
+	}
+}
 func main() {
-	someSlice := make([]byte, 666)
-
-	fmt.Println((unsafe.Sizeof(&someSlice)))
 
 }
