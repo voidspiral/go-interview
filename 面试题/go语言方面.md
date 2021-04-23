@@ -1,16 +1,42 @@
 # Golang面试题搜集
 
+- go中常量是怎么实现
+  
+```go
+  显式类型定义： const b string = "abc"
+  隐式类型定义： const b = "abc"
+```
+
+- DeepEqual 
+```go
+type S1 struct {
+    Field int
+}
+type S2 struct {
+    Field int
+}
+
+func main() {
+    fmt.Println(reflect.DeepEqual(S1{1}, S2{1}))
+}
+```
+
+https://juejin.cn/post/6881912621616857102
 - new 和 make的区别
   
 ![img_1.png](img/img_1.png)
 ![img.png](img.png)
 https://learnku.com/docs/effective-go/2020/data/6243
-
+.
 - 如何优雅地关闭 channel
 
 - slice扩容原理
   建议看源码，默认翻倍，超过1024改为自增四分之一
 
+
+- byte数组和int转换
+  
+  https://www.coder.work/article/1023024
 
 ## 2.go的内存管理 三色清扫标记算法
 
