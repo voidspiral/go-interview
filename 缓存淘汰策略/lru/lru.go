@@ -1,4 +1,4 @@
-package sort
+package lru
 
 import (
 	"log"

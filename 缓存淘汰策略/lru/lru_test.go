@@ -1,13 +1,10 @@
-package sort
+package lru
 
 import (
-	"container/list"
 	"log"
 	"testing"
 )
 
-var l list.List
-l = l.New()
 func TestLru(t *testing.T) {
 	h := new(lru)
 	h.New()

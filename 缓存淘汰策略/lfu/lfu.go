@@ -1,4 +1,4 @@
-package sort
+package lfu
 
 type LFUCache struct {
 	keyNode   map[int]*valueNode

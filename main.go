@@ -14,15 +14,25 @@ import (
 //}
 
 func worker() {
-	ticker := time.Tick(1 * time.Second)
+	ticker := time.NewTimer(1 * time.Second)
 	for {
 		select {
-		case <-ticker:
+		case <-ticker.C:
 			//执行定时任务
 			fmt.Println("执行1s定时任务")
+			if !ticker.Stop() {
+
+				<-ticker.C
+			}
+			ticker.Reset(time.Second)
 		}
 	}
 }
 func main() {
+	go worker()
 
+	func() {
+		for {
+		}
+	}()
 }
