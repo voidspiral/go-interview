@@ -1,7 +1,6 @@
 package heap
 
 import (
-	"log"
 	"math/rand"
 	"reflect"
 	"sort"
@@ -22,16 +21,19 @@ func Test_heap_new(t *testing.T) {
 	//	h.Push(i)
 	//}
 	//for i := 0; i < 5; i++ {
-	//	log.Println(h.Pop())
+	//	t.Log(h.Pop())
 	//}
 	for i := 0; i < n; i++ {
 		ans[i], _ = h.Pop()
-		//log.Println(ans[i])
+		//t.Log(ans[i])
 	}
-	log.Println("correct:", correct)
-	log.Println("ans:", ans)
+	t.Log("correct:", correct)
+	t.Log("ans:", ans)
 	sort.Ints(correct)
-	log.Println(correct)
-	log.Println("test:", reflect.DeepEqual(correct, ans))
+	t.Log(correct)
+	t.Log("test:", reflect.DeepEqual(correct, ans))
+	if ok := reflect.DeepEqual(correct, ans); !ok {
+		t.Fail()
+	}
 
 }

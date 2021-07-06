@@ -1,7 +1,6 @@
 package sort
 
 import (
-	"log"
 	"math/rand"
 	"sort"
 	"testing"
@@ -18,14 +17,14 @@ func TestQuickSort(t *testing.T) {
 	}
 
 	for i := 0; i < len(test); i++ {
-		log.Println("before:", test[i])
+		t.Log("before:", test[i])
 		QuickSort(test[i], 0, len(test[i]))
 		isSorted := sort.SliceIsSorted(test[i], func(a int, b int) bool { return test[i][a] < test[i][b] })
-		log.Println("isSorted:", isSorted)
-		log.Println("after:", test[i])
-		log.Println("")
+		t.Log("isSorted:", isSorted)
+		t.Log("after:", test[i])
+		t.Log("")
 		if !isSorted {
-			log.Println("some case wrong")
+			t.Errorf("some case wrong")
 		}
 	}
 

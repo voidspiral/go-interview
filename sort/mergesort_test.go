@@ -1,7 +1,6 @@
 package sort
 
 import (
-	"log"
 	"math/rand"
 	"sort"
 	"testing"
@@ -26,7 +25,7 @@ func TestMergeSort(t *testing.T) {
 		for j := 0; j < n; j++ {
 			test[i][j] = rand.Intn(100)
 		}
-		//log.Println(test[i])
+		//t.Log(test[i])
 	}
 	elems := make([][]int, len(test))
 	for i := 0; i < len(test); i++ {
@@ -34,24 +33,24 @@ func TestMergeSort(t *testing.T) {
 		copy(elems[i], test[i])
 		sort.Slice(elems[i], func(a, b int) bool { return elems[i][a] < elems[i][b] })
 
-		//log.Println(elems[i])
+		//t.Log(elems[i])
 	}
 
 	for i := 0; i < len(test); i++ {
-		log.Println("before:", test[i])
+		t.Log("before:", test[i])
 		MergeSort(test[i], 0, len(test[i])-1)
 		isSorted := sort.SliceIsSorted(test[i], func(a int, b int) bool { return test[i][a] < test[i][b] })
-		log.Println("isSorted:", isSorted)
-		log.Println("after:", test[i])
-		log.Println("elems:", elems[i])
+		t.Log("isSorted:", isSorted)
+		t.Log("after:", test[i])
+		t.Log("elems:", elems[i])
 		isEqual := false
 		if equal(test[i], elems[i]) {
 			isEqual = true
 		}
-		log.Println("isEqual:", isEqual)
-		log.Println("")
+		t.Log("isEqual:", isEqual)
+		t.Log("")
 		if !isSorted && !isEqual {
-			log.Println("some case wrong")
+			t.Errorf("some case wrong")
 		}
 	}
 

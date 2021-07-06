@@ -6,7 +6,7 @@ import (
 	"testing"
 )
 
-func TestHeapSort(t *testing.T) {
+func TestCounting(t *testing.T) {
 	test := make([][]int, 10)
 	for i := 0; i < len(test); i++ {
 		n := rand.Intn(100)
@@ -27,7 +27,7 @@ func TestHeapSort(t *testing.T) {
 
 	for i := 0; i < len(test); i++ {
 		t.Log("before:", test[i])
-		HeapSort(test[i])
+		CountingSort(test[i])
 		isSorted := sort.SliceIsSorted(test[i], func(a int, b int) bool { return test[i][a] < test[i][b] })
 		t.Log("isSorted:", isSorted)
 		t.Log("after:", test[i])
