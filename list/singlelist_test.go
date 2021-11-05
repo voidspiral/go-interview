@@ -52,3 +52,29 @@ func TestCrud(t *testing.T) {
 	//l.PopFront()
 	//l.Print()
 }
+
+func TestList(t *testing.T) {
+	type list struct {
+		val  int
+		next *list
+	}
+	head := &list{}
+	for i := 0; i < 10; i++ {
+		head.next = &list{val: i, next: head.next}
+	}
+	//tail := head
+	//for i := 0; i < 10; i++ {
+	//	tail.next = &list{val: i, next: nil}
+	//	tail = tail.next
+	//
+	p := head.next
+	for i := 0; i < 4; i++ {
+		p = p.next
+	}
+	p.next = p.next.next
+	p = head.next
+	for p != nil {
+		fmt.Println(p.val)
+		p = p.next
+	}
+}

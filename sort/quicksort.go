@@ -3,7 +3,7 @@ package sort
 import "math/rand"
 
 func Partition(arr []int, lo, hi int) int {
-	arr[lo], arr[lo+int(rand.Int31())%(hi-lo)] = arr[lo+int(rand.Int63())%(hi-lo)], arr[lo]
+	arr[lo], arr[lo+int(rand.Int63())%(hi-lo)] = arr[lo+int(rand.Int63())%(hi-lo)], arr[lo]
 	hi--
 	pivot := arr[lo]
 	for lo < hi {
