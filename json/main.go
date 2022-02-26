@@ -17,8 +17,15 @@ type Order struct {
 	TotalPrice float64     `json:"total_price"`
 }
 
+type Int2String struct {
+	Id int `json:"id,string"` //转化成数字
+
+}
 func main() {
-	parseNLP()
+	t := &Int2String{Id:10}
+	data, _ := json.Marshal(t)
+	fmt.Println(string(data))
+	//parseNLP()
 }
 
 func marshal() {
