@@ -1,4 +1,4 @@
-package Concurrency
+package concurrency
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ func Test1(t *testing.T) {
 	}{}
 	for i := 0; i < 10; i++ {
 		go func() {
-			<- ch
+			<-ch
 			fmt.Println(i)
 		}()
 	}
