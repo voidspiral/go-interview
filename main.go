@@ -30,12 +30,6 @@ func worker() {
 	}
 }
 
-const (
-	a = 1 << iota
-	b
-	c = iota
-)
-
 func main() {
 	//go worker()
 	//
@@ -43,7 +37,6 @@ func main() {
 	//	for {
 	//	}
 	//}()
-	fmt.Println(a, b, c)
 	count := 0
 	wg := sync.WaitGroup{}
 	wg.Add(10)
