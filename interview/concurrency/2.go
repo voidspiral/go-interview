@@ -55,31 +55,31 @@ import (
 //}
 
 type ConcurrentMap struct {
-    sync.RWMutex
-    items map[string]interface{}
+	sync.RWMutex
+	items map[string]interface{}
 }
 
 func (m *ConcurrentMap) Get(key string) (interface{}, bool) {
-    m.RLock()
-    defer m.RUnlock()
-    val, ok := m.items[key]
-    return val, ok
+	m.RLock()
+	defer m.RUnlock()
+	val, ok := m.items[key]
+	return val, ok
 }
 
 func (m *ConcurrentMap) Set(key string, value interface{}) {
-    m.Lock()
-    defer m.Unlock()
-    m.items[key] = value
+	m.Lock()
+	defer m.Unlock()
+	m.items[key] = value
 }
 
 func (m *ConcurrentMap) Delete(key string) {
-    m.Lock()
-    defer m.Unlock()
-    delete(m.items, key)
+	m.Lock()
+	defer m.Unlock()
+	delete(m.items, key)
 }
 
 func (m *ConcurrentMap) Len() int {
-    m.RLock()
-    defer m.RUnlock()
-    return len(m.items)
+	m.RLock()
+	defer m.RUnlock()
+	return len(m.items)
 }
